@@ -5,12 +5,13 @@ React component and hook which detect mouse clicks outside of an element.
 ## Usage
 
 ```jsx
-useMatchMedia(query)
+useMatchMedia(mediaQueryString[, initialState])
 ```
 
 ### Parameters
 
 - `mediaQueryString` 
+- `initialState` (optional) boolean
 
 ### Example
 
