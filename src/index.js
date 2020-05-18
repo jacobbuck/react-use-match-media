@@ -1,31 +1,23 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const matchMediaStub = mediaQueryString => ({
-  addListener: () => {},
-  matches: false,
-  query: mediaQueryString,
-  removeListener: () => {},
-});
-
-const useMatchMedia = mediaQueryString => {  
-  const mediaQueryList = useMemo(
-    () => (window.matchMedia || matchMediaStub)(mediaQueryString),
-    [mediaQueryString]
-  );
-  
-  const [matches, setMatches] = useState(() => mediaQueryList.matches);
+const useMatchMedia = (mediaQueryString) => {
+  const [state, setState] = useState(false);
   
   useEffect(() => {
-    const listener = () => setMatches(mediaQueryList.matches);
-    
-    mediaQueryList.addListener(listener);
-    
-    return () => {
-      mediaQueryList.removeListener(listener);
-    };
-  }, [mediaQueryList]);
+    if (window.matchMedia) {
+      const mediaQueryList = window.matchMedia(mediaQueryString);
   
-  return matches;
+      const updateState = () => setState(mediaQueryList.matches);
+      updateState();
+  
+      mediaQueryList.addListener(updateState);
+      return () => {
+        mediaQueryList.removeListener(updateState);
+      };
+    }
+  }, [mediaQueryString]);
+  
+  return state;
 };
 
 export default useMatchMedia;
