@@ -4,7 +4,7 @@ const useMatchMedia = (mediaQueryString, initialState = false) => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    if (window.matchMedia) {
+    if (window && window.matchMedia) {
       const mediaQueryList = window.matchMedia(mediaQueryString);
 
       const updateState = () => setState(mediaQueryList.matches);
