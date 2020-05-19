@@ -4,6 +4,9 @@
   "description": "Simple window.matchMedia React hook",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint src/",
@@ -40,6 +43,7 @@
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "lint-staged": "^10.2.2",
+    "match-media-mock": "^0.1.1",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-test-renderer": "^16.13.1",
