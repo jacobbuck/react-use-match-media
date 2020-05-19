@@ -1,6 +1,6 @@
 # react-use-match-media
 
-React component and hook which detect mouse clicks outside of an element.
+Simple `window.matchMedia` React hook.
 
 ## Usage
 
@@ -10,8 +10,12 @@ useMatchMedia(mediaQueryString[, initialState])
 
 ### Parameters
 
-- `mediaQueryString` 
-- `initialState` (optional) boolean
+- `mediaQueryString` string representing the media query to parse.
+- `initialState` (optional) boolean initial state to return if `window.matchMedia` is not supported, i.e. SSR.
+
+### Return value
+
+Boolean that returns `true` if the document currently matches the media query list.
 
 ### Example
 
