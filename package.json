@@ -32,6 +32,9 @@
     "url": "https://github.com/jacobbuck/react-use-match-media/issues"
   },
   "homepage": "https://github.com/jacobbuck/react-use-match-media#readme",
+  "dependencies": {
+    "use-isomorphic-layout-effect": "^1.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
