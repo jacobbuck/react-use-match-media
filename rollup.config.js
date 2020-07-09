@@ -12,6 +12,6 @@ export default {
       format: 'esm',
     },
   ],
-  external: ['prop-types', 'react', 'react-dom'],
+  external: ['react', 'use-isomorphic-layout-effect'],
   plugins: [babel()],
 };
