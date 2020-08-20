@@ -22,7 +22,7 @@ Boolean that returns `true` if the document currently matches the media query li
 ```jsx
 import useMatchMedia from 'react-use-match-media';
 
-const Example = props => {
+const Example = (props) => {
   const isWideViewport = useMatchMedia('(min-width: 600px)');
 
   return <div>{isWideViewport ? 'Wide' : 'Narrow'}</div>;
