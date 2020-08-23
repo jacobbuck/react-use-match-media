@@ -19,7 +19,7 @@ const MediaQueryProvider = () => {
   return (
     <MediaQueryContext.Provider value={{ isWideViewport }}>
       {props.children}
-    </MediaQueriesContext.Provider>
+    </MediaQueryContext.Provider>
   );
 };
 
