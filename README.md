@@ -29,6 +29,8 @@ const Example = (props) => {
 };
 ```
 
+More examples can be found in the [COOKBOOK.md](./COOKBOOK.md).
+
 ## Requirements
 
 Requires a minimum of React version 16.8.0 for the Hooks API.
