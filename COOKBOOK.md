@@ -4,7 +4,7 @@ Recipes for using react-use-match-media.
 
 ## Global Media Queries with React Context
 
-Set your media queries once with `useMatchMedia` and pass down your application 
+Set your media queries once with `useMatchMedia` and pass down your application
 with React Context.
 
 ```jsx
@@ -28,7 +28,7 @@ const useMediaQueries = () => React.useContext(MediaQueryContext);
 ...
 
 const Example = (props) => {
-  const { isWideViewport } = useMediaQueries()
+  const { isWideViewport } = useMediaQueries();
 
   ...
 };
