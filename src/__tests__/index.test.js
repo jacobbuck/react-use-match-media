@@ -5,6 +5,38 @@ import useMatchMedia from '..';
 const renderUseMatchMediaHook = (...args) =>
   renderHook(() => useMatchMedia(...args));
 
+test('throws TypeError if mediaQueryString is not string', () => {
+  const { result } = renderUseMatchMediaHook({});
+  expect(result.error).toEqual(
+    new TypeError(
+      'Expected `mediaQueryString` to be of type `string`, but received type `object`'
+    )
+  );
+});
+
+test('throws TypeError if initialState is not a boolean', () => {
+  const { result } = renderUseMatchMediaHook('(max-width: 1280px)', 1);
+  expect(result.error).toEqual(
+    new TypeError(
+      'Expected `initialState` to be of type `boolean`, but received type `number`'
+    )
+  );
+});
+
+test('doesn’t typecheck in production', () => {
+  const env = process.env;
+  process.env = { NODE_ENV: 'production' };
+
+  const { result } = renderUseMatchMediaHook({});
+  expect(result.error).not.toEqual(
+    new TypeError(
+      'Expected `mediaQueryString` to be of type `string`, but received type `object`'
+    )
+  );
+
+  process.env = env;
+});
+
 describe('window.matchMedia is supported', () => {
   beforeEach(() => {
     window.matchMedia = matchMediaMock.create();
@@ -69,36 +101,4 @@ describe('window.matchMedia is not supported', () => {
     const { result } = renderUseMatchMediaHook('(max-width: 1280px)', true);
     expect(result.current).toBe(true);
   });
-});
-
-test('throws TypeError if mediaQueryString is not string', () => {
-  const { result } = renderUseMatchMediaHook({});
-  expect(result.error).toEqual(
-    new TypeError(
-      'Expected `mediaQueryString` to be of type `string`, but received type `object`'
-    )
-  );
-});
-
-test('throws TypeError if initialState is not a boolean', () => {
-  const { result } = renderUseMatchMediaHook('(max-width: 1280px)', 1);
-  expect(result.error).toEqual(
-    new TypeError(
-      'Expected `initialState` to be of type `boolean`, but received type `number`'
-    )
-  );
-});
-
-test('doesn’t typecheck in production', () => {
-  const env = process.env;
-  process.env = { NODE_ENV: 'production' };
-
-  const { result } = renderUseMatchMediaHook({});
-  expect(result.error).not.toEqual(
-    new TypeError(
-      'Expected `mediaQueryString` to be of type `string`, but received type `object`'
-    )
-  );
-
-  process.env = env;
 });
