@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Added type checking of parameters in `useMatchMedia` hook.
+
+### Changed
+
+- Updated devDependencies.
+
 ## v1.1.0 - 2020-07-09
 
 ### Changed
