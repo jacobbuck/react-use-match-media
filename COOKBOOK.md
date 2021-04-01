@@ -46,8 +46,10 @@ Define your media query as an object and stringify with [json2mq](https://www.np
 import json2mq from 'json2mq';
 import useMatchMedia from 'react-use-match-media';
 
+const wideViewport = json2mq({ minWidth: 600 });
+
 const Example = (props) => {
-  const isWideViewport = useMatchMedia(json2mq({ minWidth: 600 }));
+  const isWideViewport = useMatchMedia(wideViewport);
   ...
 };
 ```
