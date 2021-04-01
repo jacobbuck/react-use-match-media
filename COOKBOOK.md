@@ -11,21 +11,22 @@ with React Context.
 import React from 'react';
 import useMatchMedia from 'react-use-match-media';
 
-const MediaQueryContext = React.createContext({ isWideViewport: false });
+const MediaQueriesContext = React.createContext({ isWideViewport: false, ... });
 
-const MediaQueryProvider = () => {
+const MediaQueriesProvider = () => {
   const isWideViewport = useMatchMedia('(min-width: 600px)');
+  ...
   return (
-    <MediaQueryContext.Provider value={{ isWideViewport }}>
+    <MediaQueriesContext.Provider value={{ isWideViewport, ... }}>
       {props.children}
-    </MediaQueryContext.Provider>
+    </MediaQueriesContext.Provider>
   );
 };
 
-const useMediaQueries = () => React.useContext(MediaQueryContext);
+const useMediaQueries = () => React.useContext(MediaQueriesContext);
 
 const Example = (props) => {
-  const { isWideViewport } = useMediaQueries();
+  const { isWideViewport, ... } = useMediaQueries();
   ...
 };
 
