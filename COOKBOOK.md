@@ -15,7 +15,6 @@ const MediaQueryContext = React.createContext({ isWideViewport: false });
 
 const MediaQueryProvider = () => {
   const isWideViewport = useMatchMedia('(min-width: 600px)');
-
   return (
     <MediaQueryContext.Provider value={{ isWideViewport }}>
       {props.children}
@@ -25,26 +24,18 @@ const MediaQueryProvider = () => {
 
 const useMediaQueries = () => React.useContext(MediaQueryContext);
 
-...
-
 const Example = (props) => {
   const { isWideViewport } = useMediaQueries();
-
   ...
 };
 
-...
-
 const App = (props) => {
-  ...
-
   return (
     <MediaQueryProvider>
       <Example />
     </MediaQueryProvider>
   );
 }
-
 ```
 
 ## Media Query from Object
@@ -54,8 +45,6 @@ Define your media query as an object and stringify with [json2mq](https://www.np
 ```jsx
 import json2mq from 'json2mq';
 import useMatchMedia from 'react-use-match-media';
-
-...
 
 const Example = (props) => {
   const isWideViewport = useMatchMedia(json2mq({ minWidth: 600 }));
