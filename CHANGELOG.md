@@ -8,7 +8,7 @@
 
 ### Changed
 
-- Updated [use-isomorphic-layout-effect](https://www.npmjs.com/package/use-isomorphic-layout-effect) dependency to v1.1.0.
+- Updated [use-isomorphic-layout-effect](https://www.npmjs.com/package/use-isomorphic-layout-effect) dependency to v1.1.1.
 
 ## v1.2.0 - 2020-10-25
 
