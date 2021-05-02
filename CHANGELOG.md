@@ -8,8 +8,7 @@
 
 ### Changed
 
-- Bumped up version of [use-isomorphic-layout-effect](https://www.npmjs.com/package/use-isomorphic-layout-effect) to v1.1.0.
-- Updated devDependencies.
+- Updated [use-isomorphic-layout-effect](https://www.npmjs.com/package/use-isomorphic-layout-effect) dependency to v1.1.0.
 
 ## v1.2.0 - 2020-10-25
 
@@ -17,16 +16,15 @@
 
 - Added type checking of parameters in `useMatchMedia` hook.
 
-### Changed
-
-- Updated devDependencies.
-
 ## v1.1.0 - 2020-07-09
+
+### Added
+
+- Added [use-isomorphic-layout-effect](https://www.npmjs.com/package/use-isomorphic-layout-effect) dependency.
 
 ### Changed
 
 - Replaced `useLayoutEffect` with [use-isomorphic-layout-effect](https://www.npmjs.com/package/use-isomorphic-layout-effect) for better SSR support.
-- Updated devDependencies.
 
 ## v1.0.0 - 2020-05-21
 
