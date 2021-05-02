@@ -4,14 +4,10 @@ import useIsomorphicLayoutEffect from 'use-isomorphic-layout-effect';
 const useMatchMedia = (mediaQueryString, initialState = false) => {
   if (process.env.NODE_ENV !== 'production') {
     if (typeof mediaQueryString !== 'string') {
-      throw new TypeError(
-        `Expected \`mediaQueryString\` to be of type \`string\`, but received type \`${typeof mediaQueryString}\``
-      );
+      throw new TypeError('Expected `mediaQueryString` to be a string');
     }
     if (typeof initialState !== 'boolean') {
-      throw new TypeError(
-        `Expected \`initialState\` to be of type \`boolean\`, but received type \`${typeof initialState}\``
-      );
+      throw new TypeError('Expected `initialState` to be a boolean');
     }
   }
 
