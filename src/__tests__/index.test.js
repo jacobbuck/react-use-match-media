@@ -8,27 +8,15 @@ const renderUseMatchMediaHook = (...args) =>
 test('throws TypeError if mediaQueryString is not string', () => {
   const { result } = renderUseMatchMediaHook({});
   expect(result.error).toEqual(
-    new TypeError('Expected `mediaQueryString` to be a string')
+    new Error('Invariant failed: Expected `mediaQueryString` to be a string')
   );
 });
 
 test('throws TypeError if initialState is not a boolean', () => {
   const { result } = renderUseMatchMediaHook('(max-width: 1280px)', 1);
   expect(result.error).toEqual(
-    new TypeError('Expected `initialState` to be a boolean')
+    new Error('Invariant failed: Expected `initialState` to be a boolean')
   );
-});
-
-test('doesn’t typecheck in production', () => {
-  const env = process.env;
-  process.env = { NODE_ENV: 'production' };
-
-  const { result } = renderUseMatchMediaHook({});
-  expect(result.error).not.toEqual(
-    new TypeError('Expected `mediaQueryString` to be a string')
-  );
-
-  process.env = env;
 });
 
 describe('window.matchMedia is supported', () => {
