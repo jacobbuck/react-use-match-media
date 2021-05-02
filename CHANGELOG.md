@@ -5,9 +5,11 @@
 ### Added
 
 - Added source maps to build output.
+- Added [tiny-invariant](https://www.npmjs.com/package/tiny-invariant) dependency.
 
 ### Changed
 
+- Changed type checking to use `invariant` function from [tiny-invariant](https://www.npmjs.com/package/tiny-invariant).
 - Updated [use-isomorphic-layout-effect](https://www.npmjs.com/package/use-isomorphic-layout-effect) dependency to v1.1.1.
 
 ## v1.2.0 - 2020-10-25
