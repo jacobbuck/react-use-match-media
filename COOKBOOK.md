@@ -8,10 +8,10 @@ Set your media queries once with `useMatchMedia` and pass down your application
 with React Context.
 
 ```jsx
-import React from 'react';
+import { createContext, useContext } from 'react';
 import useMatchMedia from 'react-use-match-media';
 
-const MediaQueriesContext = React.createContext({ isWideViewport: false, ... });
+const MediaQueriesContext = createContext({ isWideViewport: false, ... });
 
 const MediaQueriesProvider = () => {
   const isWideViewport = useMatchMedia('(min-width: 600px)');
@@ -23,7 +23,7 @@ const MediaQueriesProvider = () => {
   );
 };
 
-const useMediaQueries = () => React.useContext(MediaQueriesContext);
+const useMediaQueries = () => useContext(MediaQueriesContext);
 
 const Example = (props) => {
   const { isWideViewport, ... } = useMediaQueries();
