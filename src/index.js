@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import invariant from 'tiny-invariant';
-import useIsomorphicLayoutEffect from 'use-isomorphic-layout-effect';
+import useBrowserLayoutEffect from './useBrowserLayoutEffect';
 
 const useMatchMedia = (mediaQueryString, initialState = false) => {
   invariant(
@@ -14,7 +14,7 @@ const useMatchMedia = (mediaQueryString, initialState = false) => {
 
   const [state, setState] = useState(initialState);
 
-  useIsomorphicLayoutEffect(() => {
+  useBrowserLayoutEffect(() => {
     if (window.matchMedia) {
       const mediaQueryList = window.matchMedia(mediaQueryString);
 

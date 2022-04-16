@@ -35,8 +35,7 @@
   },
   "homepage": "https://github.com/jacobbuck/react-use-match-media#readme",
   "dependencies": {
-    "tiny-invariant": "^1.1.0",
-    "use-isomorphic-layout-effect": "^1.1.1"
+    "tiny-invariant": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
