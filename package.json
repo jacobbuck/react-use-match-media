@@ -54,7 +54,6 @@
     "match-media-mock": "^0.1.1",
     "prettier": "^2.6.2",
     "react": "^18.0.0",
-    "react-test-renderer": "^18.0.0",
     "rollup": "^2.70.2"
   },
   "peerDependencies": {
