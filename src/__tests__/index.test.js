@@ -68,10 +68,6 @@ describe('window.matchMedia is supported', () => {
 });
 
 describe('window.matchMedia is not supported', () => {
-  beforeEach(() => {
-    expect(window.matchMedia).toBeUndefined();
-  });
-
   test('returns false', () => {
     const { result } = renderHook(() => useMatchMedia('(max-width: 1280px)'));
     expect(result.current).toBe(false);
