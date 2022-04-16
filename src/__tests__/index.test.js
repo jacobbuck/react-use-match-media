@@ -1,19 +1,19 @@
+/**
+ * @jest-environment jsdom
+ */
 import { act, renderHook } from '@testing-library/react-hooks';
 import matchMediaMock from 'match-media-mock';
 import useMatchMedia from '..';
 
-const renderUseMatchMediaHook = (...args) =>
-  renderHook(() => useMatchMedia(...args));
-
 test('throws TypeError if mediaQueryString is not string', () => {
-  const { result } = renderUseMatchMediaHook({});
+  const { result } = renderHook(() => useMatchMedia({}));
   expect(result.error).toEqual(
     new Error('Invariant failed: Expected `mediaQueryString` to be a string')
   );
 });
 
 test('throws TypeError if initialState is not a boolean', () => {
-  const { result } = renderUseMatchMediaHook('(max-width: 1280px)', 1);
+  const { result } = renderHook(() => useMatchMedia('(max-width: 1280px)', 1));
   expect(result.error).toEqual(
     new Error('Invariant failed: Expected `initialState` to be a boolean')
   );
@@ -30,13 +30,15 @@ describe('window.matchMedia is supported', () => {
   });
 
   test('returns true if mediaQueryString matches', () => {
-    const { result } = renderUseMatchMediaHook('(max-width: 1280px)');
+    const { result } = renderHook(() => useMatchMedia('(max-width: 1280px)'));
 
     expect(result.current).toBe(true);
   });
 
   test('returns false if mediaQueryString does not match and initialState is set', () => {
-    const { result } = renderUseMatchMediaHook('(max-width: 1024px)', true);
+    const { result } = renderHook(() =>
+      useMatchMedia('(max-width: 1024px)', true)
+    );
 
     expect(result.current).toBe(false);
   });
@@ -44,9 +46,7 @@ describe('window.matchMedia is supported', () => {
   test('handles mediaQueryString change', () => {
     const { rerender, result } = renderHook(
       ({ mediaQueryString }) => useMatchMedia(mediaQueryString),
-      {
-        initialProps: { mediaQueryString: '(max-width: 1280px)' },
-      }
+      { initialProps: { mediaQueryString: '(max-width: 1280px)' } }
     );
 
     expect(result.current).toBe(true);
@@ -57,7 +57,7 @@ describe('window.matchMedia is supported', () => {
   });
 
   test('listens to MediaQueryList changes', () => {
-    const { result } = renderUseMatchMediaHook('(max-width: 1280px)');
+    const { result } = renderHook(() => useMatchMedia('(max-width: 1280px)'));
 
     expect(result.current).toBe(true);
 
@@ -75,12 +75,14 @@ describe('window.matchMedia is not supported', () => {
   });
 
   test('returns false', () => {
-    const { result } = renderUseMatchMediaHook('(max-width: 1280px)');
+    const { result } = renderHook(() => useMatchMedia('(max-width: 1280px)'));
     expect(result.current).toBe(false);
   });
 
   test('returns initialState if set', () => {
-    const { result } = renderUseMatchMediaHook('(max-width: 1280px)', true);
+    const { result } = renderHook(() =>
+      useMatchMedia('(max-width: 1280px)', true)
+    );
     expect(result.current).toBe(true);
   });
 });
