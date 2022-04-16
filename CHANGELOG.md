@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- Updated [tiny-invariant](https://www.npmjs.com/package/tiny-invariant) dependency to v1.2.0.
+- Updated [react](https://www.npmjs.com/package/react) peer-dependency to support v18.
+
+### Removed
+
+- Removed [use-isomorphic-layout-effect](https://www.npmjs.com/package/use-isomorphic-layout-effect) dependency.
+
 ## v1.3.1 - 2021-05-02
 
 ### Changed
